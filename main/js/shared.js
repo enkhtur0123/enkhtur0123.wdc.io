@@ -7,7 +7,7 @@ var LIMIT = 100; //Number of records to bring back at any time - MAX 100
 window.fbAsyncInit = function() {
     FB.init({
         appId: APP_ID, // Tableau Facebook APP ID
-        channelUrl: './channel.html', // Channel File
+        channelUrl: 'channel.html', // Channel File
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true // parse XFBML
