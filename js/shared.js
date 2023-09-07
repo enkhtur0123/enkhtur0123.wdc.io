@@ -1,6 +1,5 @@
 var APP_ID = '389139048664410'; //Facebook APP ID
 var LIMIT = 100; //Number of records to bring back at any time - MAX 100
-var BASEURL = 'C:/Users/Erdembileg.E/Desktop/nginx-1.24.0/html/wdc/'; //base url of virtual directory
 
 /**
  * 1. login with Facebook
@@ -8,7 +7,7 @@ var BASEURL = 'C:/Users/Erdembileg.E/Desktop/nginx-1.24.0/html/wdc/'; //base url
 window.fbAsyncInit = function() {
     FB.init({
         appId: APP_ID, // Tableau Facebook APP ID
-        channelUrl: BASEURL + 'channel.html', // Channel File
+        channelUrl: 'channel.html', // Channel File
         status: true, // check login status
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true // parse XFBML
