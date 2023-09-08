@@ -23,7 +23,6 @@ window.fbAsyncInit = function() {
             document.getElementById("status").innerHTML = loginButton;
             //FAILED
         } else {
-            response.console.error();
             document.getElementById("message").innerHTML += "Logged Out "
             document.getElementById("status").innerHTML = loginButton;
             //UNKNOWN ERROR
