@@ -125,6 +125,7 @@ function getData() {
 
                 // get page token if checked
                 if(checkboxes[i].value == response_fb.data[ii].id) {
+                    console.log(response_fb.data[ii].access_token);
                     access_tokens.push(response_fb.data[ii].access_token)
                 }
 
@@ -136,7 +137,7 @@ function getData() {
         return;
     }
 
-
+    console.log('HERE');
     var pageInfoComplete = []
 
     for (var pid = 0; pid < page_ids.length; pid++) {
