@@ -120,6 +120,7 @@ function getData() {
 
     for (var i = 0, n = checkboxes.length; i < n; i++) {
         if (checkboxes[i].checked) {
+            console.log('CHECKBOX ' + checkboxes[i].value.toString());
             page_ids.push(checkboxes[i].value);
             for (var ii = 0, nn = response_fb.data.length; ii < nn; ii++) {
 
@@ -137,9 +138,9 @@ function getData() {
     }
 
     var pageInfoComplete = []
-
+    console.log('HERE ' + page_ids.length.toString());
     for (var pid = 0; pid < page_ids.length; pid++) {
-        console.log('HERE' + page_ids[pid]);
+        
         var strPage = '/?ids=' + page_ids[pid] + '&fields=username,fan_count,link,name,new_like_count,talking_about_count'; //get page information for all selected pages
         FB.api(strPage, function(page_response) {
             var page_id_string = Object.keys( page_response );
