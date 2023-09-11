@@ -125,7 +125,6 @@ function getData() {
 
                 // get page token if checked
                 if(checkboxes[i].value == response_fb.data[ii].id) {
-                    console.log(response_fb.data[ii].access_token);
                     access_tokens.push(response_fb.data[ii].access_token)
                 }
 
@@ -137,12 +136,11 @@ function getData() {
         return;
     }
 
-    console.log('HERE');
     var pageInfoComplete = []
 
     for (var pid = 0; pid < page_ids.length; pid++) {
         var strPage = '/?ids=' + page_ids[pid] + '&fields=username,fan_count,link,name,new_like_count,talking_about_count'; //get page information for all selected pages
-
+        console.log('HERE' + strPage);
         FB.api(strPage, function(page_response) {
             var page_id_string = Object.keys( page_response );
             var page_id_index = page_ids.indexOf(page_id_string[0]);
