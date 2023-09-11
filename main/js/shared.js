@@ -157,8 +157,8 @@ function getData() {
             // this code clears your interval (myInterval)
             tableau.connectionName = CONNECTION_NAME; // name the data source. This will be the data source name in Tableau
             tableau.connectionData = JSON.stringify(pageInfoComplete); // set pageInfo as the connection data so we can get to it when we fetch the data
-            tableau.submit();
             console.log(tableau);
+            tableau.submit();
         }
     }, 500);
 }
