@@ -140,7 +140,6 @@ function getData() {
 
         var strPage = '/?ids=' + page_ids[pid] + '&fields=username,fan_count,link,name,new_like_count,talking_about_count'; //get page information for all selected pages
         FB.api(strPage, function(page_response) {
-            console.log(page_response);
             var page_id_string = Object.keys( page_response );
             var page_id_index = page_ids.indexOf(page_id_string[0]);
             var access_token_for_page = access_tokens[page_id_index]
@@ -149,7 +148,7 @@ function getData() {
                 'token': access_token_for_page,
                 'page_response': page_response
             };
-
+            console.log(pageInfo);     
             pageInfoComplete.push(pageInfo)
         });
     }
