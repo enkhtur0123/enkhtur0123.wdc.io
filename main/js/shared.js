@@ -139,7 +139,7 @@ function getData() {
     var pageInfoComplete = []
 
     for (var pid = 0; pid < page_ids.length; pid++) {
-        console.log('HERE' + page_ids.length.toString());
+        console.log('HERE' + page_ids[pid]);
         var strPage = '/?ids=' + page_ids[pid] + '&fields=username,fan_count,link,name,new_like_count,talking_about_count'; //get page information for all selected pages
         FB.api(strPage, function(page_response) {
             var page_id_string = Object.keys( page_response );
