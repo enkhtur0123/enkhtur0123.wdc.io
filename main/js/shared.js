@@ -23,6 +23,7 @@ window.fbAsyncInit = function() {
             document.getElementById("status").innerHTML = loginButton;
             //FAILED
         } else {
+            console.log(response)
             document.getElementById("message").innerHTML += response.status
             document.getElementById("status").innerHTML = loginButton;
             //UNKNOWN ERROR
