@@ -5,33 +5,34 @@ var LIMIT = 100; //Number of records to bring back at any time - MAX 100
  * 1. login with Facebook
  */
 window.fbAsyncInit = function() {
-    FB.Event.subscribe('auth.statusChange', function(response) {
-        var loginButton = "<img src='img/log-in-with-facebook.png' alt='log in with Facebook' style='cursor:pointer; height: 46px;'' onclick='login();' />";
-        if (response.status === 'connected') {
-            getUserInfo();
-            document.getElementById("message").innerHTML += "Connected to Facebook";
-            //SUCCESS
-        } else if (response.status === 'not_authorized') {
-            document.getElementById("message").innerHTML += "Failed to Connect";
-            document.getElementById("status").innerHTML = loginButton;
-            //FAILED
-        } else {
-            console.log('auth.statusChange')
-            console.log(response)
-            document.getElementById("message").innerHTML += response.status
-            document.getElementById("status").innerHTML = loginButton;
-            //UNKNOWN ERROR
-        }
-      });
+    // FB.Event.subscribe('auth.statusChange', function(response) {
+    //     var loginButton = "<img src='img/log-in-with-facebook.png' alt='log in with Facebook' style='cursor:pointer; height: 46px;'' onclick='login();' />";
+    //     if (response.status === 'connected') {
+    //         getUserInfo();
+    //         document.getElementById("message").innerHTML += "Connected to Facebook";
+    //         //SUCCESS
+    //     } else if (response.status === 'not_authorized') {
+    //         document.getElementById("message").innerHTML += "Failed to Connect";
+    //         document.getElementById("status").innerHTML = loginButton;
+    //         //FAILED
+    //     } else {
+    //         console.log('auth.statusChange')
+    //         console.log(response)
+    //         document.getElementById("message").innerHTML += response.status
+    //         document.getElementById("status").innerHTML = loginButton;
+    //         //UNKNOWN ERROR
+    //     }
+    //   });
       FB.init({
         appId: APP_ID, // Tableau Facebook APP ID
-   //     channelUrl: 'channel.html', // Channel File
-        status: true, // check login status
+        channelUrl: 'channel.html', // Channel File
+        status: false, // check login status
         cookie: true, // enable cookies to allow the server to access the session
         xfbml: true, // parse XFBML,
-        version    : 'v2.7'
+        version: 'v2.7'
     });
     FB.getLoginStatus(function(response) {
+        fbApiInit = true;
         var loginButton = "<img src='img/log-in-with-facebook.png' alt='log in with Facebook' style='cursor:pointer; height: 46px;'' onclick='login();' />";
         if (response.status === 'connected') {
             getUserInfo();
