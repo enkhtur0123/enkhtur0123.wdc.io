@@ -5,13 +5,6 @@ var LIMIT = 100; //Number of records to bring back at any time - MAX 100
  * 1. login with Facebook
  */
 window.fbAsyncInit = function() {
-    FB.init({
-        appId: APP_ID, // Tableau Facebook APP ID
-        channelUrl: 'channel.html', // Channel File
-        status: true, // check login status
-        cookie: true, // enable cookies to allow the server to access the session
-        xfbml: true // parse XFBML
-    });
     FB.Event.subscribe('auth.statusChange', function(response) {
         var loginButton = "<img src='img/log-in-with-facebook.png' alt='log in with Facebook' style='cursor:pointer; height: 46px;'' onclick='login();' />";
         if (response.status === 'connected') {
@@ -30,6 +23,14 @@ window.fbAsyncInit = function() {
             //UNKNOWN ERROR
         }
       });
+      FB.init({
+        appId: APP_ID, // Tableau Facebook APP ID
+   //     channelUrl: 'channel.html', // Channel File
+        status: true, // check login status
+        cookie: true, // enable cookies to allow the server to access the session
+        xfbml: true, // parse XFBML,
+        version    : 'v2.7'
+    });
     FB.getLoginStatus(function(response) {
         var loginButton = "<img src='img/log-in-with-facebook.png' alt='log in with Facebook' style='cursor:pointer; height: 46px;'' onclick='login();' />";
         if (response.status === 'connected') {
